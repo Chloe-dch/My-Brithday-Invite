@@ -17,7 +17,7 @@
         
         .container {
             position: relative;
-            max-width: 90%;
+            max-width: 600px;
             margin: auto;
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -30,40 +30,67 @@
         }
 
         .quote {
-            font-size: 16px;
+            font-size: 18px;
             font-style: italic;
             color: #ff4081;
             margin-top: 10px;
         }
 
+        /* 主角照片摇摆动画 */
         .main-character {
             position: absolute;
-            top: 150px;
+            top: 200px;
             left: 50%;
             transform: translateX(-50%);
             width: 110px;
             z-index: 10;
+            animation: swing 2s ease-in-out infinite alternate;
         }
 
-        /* 让动画漂浮 */
+        @keyframes swing {
+            0% { transform: translateX(-50%) rotate(-5deg); }
+            100% { transform: translateX(-50%) rotate(5deg); }
+        }
+
+        /* 可爱动画漂浮 */
         .floating-character {
             position: absolute;
             width: 80px;
-            animation: float 5s infinite ease-in-out alternate;
+            animation: float 3s infinite alternate ease-in-out;
         }
 
         @keyframes float {
-            0% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-20px) translateX(10px); }
-            100% { transform: translateY(10px) translateX(-10px); }
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-30px); }
+        }
+        
+        /* 生日素材漂浮（蛋糕 & 气球） */
+        .floating-birthday {
+            position: absolute;
+            width: 50px;
+            animation: birthdayFloat 3s infinite ease-in-out;
         }
 
-        .content {
-            padding-top: 80px;
+        @keyframes birthdayFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
         }
+        
+        .balloon {
+            top: 10%;
+            left: 10%;
+        }
+        
+        .cake {
+            bottom: 5%;
+            right: 10%;
+        }
+        
     </style>
 </head>
 <body>
+
     <button onclick="playMusic()">播放音乐 🎵</button>
 
     <script>
@@ -99,9 +126,15 @@
         </div>
     </div>
 
-    <!-- 可爱漂浮动画 -->
-    <img src="second.png.jpeg" alt="可爱动画1" class="floating-character" style="top: 20%; left: 10%;">
-    <img src="third.jpeg" alt="可爱动画2" class="floating-character" style="top: 50%; right: 10%; animation-delay: 2s;">
+    <!-- 可爱动画 -->
+    <img src="second.png.jpeg" alt="可爱动画1" class="floating-character" style="top: 60%; left: 5%;">
+    <img src="third.jpeg" alt="可爱动画2" class="floating-character" style="top: 40%; right: 5%; animation-delay: 2s;">
+    
+    <!-- 生日素材 -->
+    <img src="balloon.png" alt="气球" class="floating-birthday balloon">
+    <img src="cake.png" alt="蛋糕" class="floating-birthday cake">
+
 </body>
 </html>
+
 
