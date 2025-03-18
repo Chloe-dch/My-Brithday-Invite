@@ -3,89 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>焮釔的1周岁派对 🎂</title>
+    <title>焮釔的1周岁派对</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
-        
-       background-image: url('background.jpg，jpeg'); /* 确保文件名正确 */
-background-size: cover;
-background-position: center; 
-font-family: Arial, sans-serif;
-            color: #ff4081;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 3em;
-            text-shadow: 3px 3px 10px #ff80ab;
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+        body {
+            background: url('strawberry-bear.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: 'Comic Neue', cursive;
+            overflow: hidden;
         }
         .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0px 4px 8px rgba(255, 105, 180, 0.3);
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            display: inline-block;
+            border-radius: 15px;
         }
-        .animated-img {
-            width: 150px;
-            animation: float 3s infinite alternate ease-in-out;
+        h1 {
+            color: #ff4081;
         }
-        @keyframes float {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-10px); }
-        }
-        #main-character {
-            width: 180px;
-            cursor: grab;
-            transition: transform 0.2s;
-        }
-        #main-character:hover {
-            transform: scale(1.1);
-        }
-        button {
+        .quote {
             font-size: 18px;
-            background-color: #ff80ab;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            font-style: italic;
+            color: #ff4081;
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #ff4081;
+        .main-character {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: swing 2s infinite alternate;
+            cursor: pointer;
+        }
+        @keyframes swing {
+            0% { transform: translateX(-50%) rotate(-5deg); }
+            100% { transform: translateX(-50%) rotate(5deg); }
+        }
+        .main-character:active {
+            animation: move 1s ease-in-out;
+        }
+        @keyframes move {
+            0% { transform: translateX(-50%) scale(1.2); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        .walking-character {
+            position: absolute;
+            bottom: 10px;
+            animation: walk 5s linear infinite;
+        }
+        @keyframes walk {
+            0% { left: 0; }
+            100% { left: 100%; }
+        }
+        .content {
+            padding-top: 150px;
         }
     </style>
 </head>
 <body>
+    <audio autoplay loop>
+        <source src="happy-birthday.mp3" type="audio/mpeg">
+    </audio>
     <div class="container">
-        <h1>🎉 欢迎来到焮釔的1周岁派对 🎉</h1>
-        <img src="Main.png.jpeg" class="main-character" id="main-character">
-        <img src="second.png.jpeg" class="animated-img">
-        <img src="thirdphoto.png.jpeg" class="animated-img">
-    <div class="info">
-            <h2>📅 日期：2025年4月18日</h2>
-            <p>🍽️ 6:30 PM - 入场</p>
-            <p>🎂 7:00 PM - 享用晚餐</p>
-            <p>🎶 8:00 PM - 切蛋糕时间 🎈</p>
-            <p>💖 9:00 PM - 感谢大家的到来！</p>
-            <h3>📍 地址：</h3>
-            <a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">6, Laluan Mewah Indah 3（点击查看地图）</a>
+        <h1>🎉 欢迎来到焮釔的1周岁派对 🎂</h1>
+        <p class="quote">一岁啦！从呱呱坠地到牙牙学语，每一天都是满满的爱与成长💕</p>
+        <p>日期：2025年4月18日</p>
+        <p>📍 地址：6, Laluan Mewah Indah 3</p>
+        <p><a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">点击查看 Google 地图</a></p>
+        <div class="content">
+            <p>⏰ 流程安排：</p>
+            <p>6:30 抵达 🏡</p>
+            <p>7:00 用餐 🍽️</p>
+            <p>8:00 切蛋糕 🎂</p>
+            <p>9:00 感谢到场 🙏</p>
         </div>
     </div>
-    <br>
-    <audio id="birthday-music" loop>
-        <source src="cutesong.mp3" type="audio/mp3">
-    </audio>
-    <button onclick="document.getElementById('birthday-music').play()">🎵 播放音乐</button>
-    <button onclick="document.getElementById('birthday-music').pause()">⏸️ 暂停音乐</button>
-</body>
-</html>
-
-        
-        document.addEventListener("mouseup", () => {
-            isDragging = false;
-            character.style.cursor = "grab";
-        });
-    </script>
+    <img src="main-character.jpg" alt="主角" class="main-character" width="150">
+    <img src="walking1.gif" alt="可爱动画" class="walking-character" width="100" style="left: 10%;">
+    <img src="walking2.gif" alt="可爱动画" class="walking-character" width="100" style="right: 10%;">
 </body>
 </html>
