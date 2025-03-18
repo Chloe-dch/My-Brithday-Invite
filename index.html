@@ -92,10 +92,11 @@
         </div>
     </div>
 
-    <audio autoplay loop>
-        <source src="cutesong.mp3" type="audio/mp3">
-        您的浏览器不支持音频播放。
-    </audio>
+  <audio id="birthday-music" loop>
+    <source src="https://your-audio-file-url.mp3" type="audio/mp3">
+    您的浏览器不支持音频播放。
+</audio>
+<button onclick="document.getElementById('birthday-music').play()">🎵 播放可爱音乐</button>
 
     <script>
         let character = document.getElementById("main-character");
