@@ -6,62 +6,69 @@
     <title>焮釔的1周岁派对</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+        
         body {
             background: url('background.jpg.jpeg') no-repeat center center fixed;
             background-size: cover;
             text-align: center;
             font-family: 'Comic Neue', cursive;
-            overflow: auto;
+            overflow: hidden;
         }
+        
         .container {
-     .container {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 80px 20px 20px;
-    border-radius: 15px;
-    text-align: center;
-}
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 100px 20px 20px; /* 预留主角图片空间 */
+            border-radius: 15px;
+            text-align: center;
+        }
 
         h1 {
             color: #ff4081;
         }
+
         .quote {
             font-size: 18px;
             font-style: italic;
             color: #ff4081;
             margin-top: 10px;
         }
-       .main-character {
-    position: absolute;
-    top: -50px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px; 
-    z-index: 10; 
-}
-        @keyframes swing {
-            0% { transform: translateX(-50%) rotate(-5deg); }
-            100% { transform: translateX(-50%) rotate(5deg); }
+
+        /* 调整主角照片的位置 */
+        .main-character {
+            position: absolute;
+            top: -30px; /* 适当降低 */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* 调整大小 */
+            z-index: 10;
         }
+
+        /* 可爱动画 */
         .walking-character {
             position: absolute;
-            bottom: 10px;
-            left: -100px;
+            bottom: 30px;
+            left: -10%; /* 让它稍微可见 */
             width: 100px;
             animation: walk 5s linear infinite;
+            z-index: 20; /* 确保在其他内容上方 */
         }
+
+        /* 走动动画 */
         @keyframes walk {
-            0% { left: -100px; }
-            100% { left: 100vw; }
+            0% { left: -10%; }
+            100% { left: 110%; }
         }
+
         .content {
-            padding-top: 80px;
+            padding-top: 50px;
         }
     </style>
 </head>
 <body>
+
     <button onclick="playMusic()">播放音乐 🎵</button>
 
     <script>
@@ -81,19 +88,24 @@
     </audio>
 
     <div class="container">
-    <h1>🎉 欢迎来到焮釔的1周岁派对 🎂</h1>
-    <img src="main.jpeg" alt="主角" class="main-character">
-    <p class="quote">一岁啦！从呱呱坠地到牙牙学语，每一天都是满满的爱与成长💕</p>
-    <p>日期：2025年4月18日</p>
-    <p>📍 地址：6, Laluan Mewah Indah 3</p>
-    <p><a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">点击查看 Google 地图</a></p>
-         <img src="second.png.jpeg" alt="可爱动画1" class="walking-character">
-    <div class="content">
-        <p>⏰ 流程安排：</p>
-        <p>6:30 抵达 🏡</p>
-        <p>7:00 用餐 🍽️</p>
-        <p>8:00 切蛋糕 🎂</p>
-        <p>9:00 感谢到场 🙏</p>
+        <h1>🎉 欢迎来到焮釔的1周岁派对 🎂</h1>
+        <img src="main.jpeg" alt="主角" class="main-character">
+        <p class="quote">一岁啦！从呱呱坠地到牙牙学语，每一天都是满满的爱与成长💕</p>
+        <p>日期：2025年4月18日</p>
+        <p>📍 地址：6, Laluan Mewah Indah 3</p>
+        <p><a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">点击查看 Google 地图</a></p>
+
+        <div class="content">
+            <p>⏰ 流程安排：</p>
+            <p>6:30 抵达 🏡</p>
+            <p>7:00 用餐 🍽️</p>
+            <p>8:00 切蛋糕 🎂</p>
+            <p>9:00 感谢到场 🙏</p>
+        </div>
+    </div>
+
+    <!-- 可爱动画 -->
+    <img src="second.png.jpeg" alt="可爱动画1" class="walking-character">
     <img src="third.jpeg" alt="可爱动画2" class="walking-character" style="animation-delay: 2s;">
 
 </body>
