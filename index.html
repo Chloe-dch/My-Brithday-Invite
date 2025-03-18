@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
         body {
-            background: url('background.jpg') no-repeat center center fixed;
+            background: url('background.jpg.jpeg') no-repeat center center fixed;
             background-size: cover;
             text-align: center;
             font-family: 'Comic Neue', cursive;
@@ -31,13 +31,12 @@
             margin-top: 10px;
         }
         .main-character {
-            position: absolute;
-            top: 50px; /* 让图片往下 */
-            left: 50%;
-            transform: translateX(-50%);
-            animation: swing 2s infinite alternate;
-            cursor: pointer;
-            z-index: 10;
+    display: block;
+    margin: 0 auto; 
+    width: 150px;
+    padding-top: 20px; 
+    animation: swing 2s infinite alternate;
+    cursor: pointer;
         }
         @keyframes swing {
             0% { transform: translateX(-50%) rotate(-5deg); }
@@ -55,7 +54,7 @@
             100% { left: 100vw; }
         }
         .content {
-            padding-top: 20px;
+            padding-top: 80px;
         }
     </style>
 </head>
