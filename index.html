@@ -11,14 +11,14 @@
             background-size: cover;
             text-align: center;
             font-family: 'Comic Neue', cursive;
-            overflow: auto; /* 允许滚动 */
+            overflow: auto;
         }
         .container {
             position: relative;
             max-width: 600px;
             margin: auto;
             background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+            padding: 100px 20px 20px; /* 增加顶部间距，避免图片遮挡 */
             border-radius: 15px;
         }
         h1 {
@@ -31,57 +31,52 @@
             margin-top: 10px;
         }
         .main-character {
-    position: absolute;
-    top: 10px; 
-    left: 50%;
-    transform: translateX(-50%);
-    animation: swing 2s infinite alternate;
-    cursor: pointer;
-    z-index: 10;
+            position: absolute;
+            top: 50px; /* 让图片往下 */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: swing 2s infinite alternate;
+            cursor: pointer;
+            z-index: 10;
         }
         @keyframes swing {
             0% { transform: translateX(-50%) rotate(-5deg); }
             100% { transform: translateX(-50%) rotate(5deg); }
         }
-        .main-character:active {
-            animation: move 1s ease-in-out;
-        }
-        @keyframes move {
-            0% { transform: translateX(-50%) scale(1.2); }
-            100% { transform: translateX(-50%) scale(1); }
-        }
         .walking-character {
             position: absolute;
             bottom: 10px;
+            left: -100px;
             width: 100px;
             animation: walk 5s linear infinite;
         }
         @keyframes walk {
-            0% { left: -10%; }
-            100% { left: 110%; }
+            0% { left: -100px; }
+            100% { left: 100vw; }
         }
         .content {
-            padding-top: 150px;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
     <button onclick="playMusic()">播放音乐 🎵</button>
 
-<script>
-    function playMusic() {
-        let audio = document.getElementById("bg-music");
-        audio.play().then(() => {
-            console.log("音乐播放成功");
-        }).catch(error => {
-            console.log("自动播放失败，用户需要手动交互:", error);
-        });
-    }
-</script>
-    <audio id="bg-music" loop muted>
-        <audio id="bg-music" loop>
-    <source src="https://chloe-dch.github.io/My-Brithday-Invite/cutesong.mp3" type="audio/mpeg">
-</audio>
+    <script>
+        function playMusic() {
+            let audio = document.getElementById("bg-music");
+            audio.muted = false;
+            audio.play().then(() => {
+                console.log("音乐播放成功");
+            }).catch(error => {
+                console.log("自动播放失败，用户需要手动交互:", error);
+            });
+        }
+    </script>
+
+    <audio id="bg-music" loop>
+        <source src="https://chloe-dch.github.io/My-Brithday-Invite/cutesong.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="container">
         <h1>🎉 欢迎来到焮釔的1周岁派对 🎂</h1>
@@ -102,8 +97,10 @@
     <img src="main.jpeg" alt="主角" class="main-character" width="150">
 
     <!-- 行走动画 -->
-    <img src="second.png.jpeg" alt="可爱动画1" class="walking-character" style="bottom: 50px;">
-    <img src="third.jpeg" alt="可爱动画2" class="walking-character" style="bottom: 100px; animation-delay: 2s;">
+    <img src="second.png.jpeg" alt="可爱动画1" class="walking-character">
+    <img src="third.jpeg" alt="可爱动画2" class="walking-character" style="animation-delay: 2s;">
+
 </body>
 </html>
+
 
