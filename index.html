@@ -25,31 +25,43 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-        .main-character {
-            width: 150px;
-            position: absolute;
-            left: 50%;
-            top: 30%;
-            transform: translateX(-50%);
-            animation: shake 2s infinite alternate;
-            cursor: grab;
-        }
-        @keyframes shake {
-            0% { transform: translate(-50%, 0) rotate(-5deg); }
-            100% { transform: translate(-50%, 0) rotate(5deg); }
-        }
-        .animated-img {
-            width: 100px;
-            position: absolute;
-            bottom: 20px;
-            animation: move 5s infinite alternate;
-        }
-        .animated-img:nth-child(2) { left: 10%; }
-        .animated-img:nth-child(3) { right: 10%; }
-        @keyframes move {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(20px); }
-        }
+        /* 主角照片（顶部，摇摆动画） */
+.main-character {
+    width: 150px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: sway 2s infinite alternate ease-in-out;
+}
+
+/* 可爱动画照片（初始位置调整，增加移动范围） */
+.animated-img {
+    width: 100px;
+    position: absolute;
+    bottom: 50px;
+    animation: move 3s infinite alternate ease-in-out;
+}
+
+.animated-img:nth-child(2) { left: 25%; }
+.animated-img:nth-child(3) { right: 25%; }
+
+@keyframes sway {
+    0% { transform: translateX(-50%) rotate(-5deg); }
+    100% { transform: translateX(-50%) rotate(5deg); }
+}
+
+@keyframes move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(40px); }
+}
+        document.querySelectorAll('.animated-img').forEach(img => {
+    img.addEventListener('click', () => {
+        let randomX = Math.random() * 100 - 50; // 随机左右移动
+        let randomY = Math.random() * 50 - 25; // 随机上下移动
+        img.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${Math.random() * 20 - 10}deg)`;
+    });
+});
         .info {
             background: rgba(255, 182, 193, 0.8);
             padding: 15px;
@@ -93,7 +105,7 @@
     </div>
 
   <audio id="birthday-music" loop>
-    <source src="https://your-audio-file-url.mp3" type="audio/mp3">
+    <source src="cutesong,mp3" type="audio/mp3">
     您的浏览器不支持音频播放。
 </audio>
 <button onclick="document.getElementById('birthday-music').play()">🎵 播放可爱音乐</button>
