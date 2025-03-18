@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
         body {
-            background: url(background.jpg.jpeg) no-repeat center center fixed;
+            background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             text-align: center;
             font-family: 'Comic Neue', cursive;
-            overflow: hidden;
+            overflow: auto; /* 允许滚动 */
         }
         .container {
             position: relative;
@@ -33,6 +33,7 @@
         .main-character {
             position: absolute;
             left: 50%;
+            top: 60%;
             transform: translateX(-50%);
             animation: swing 2s infinite alternate;
             cursor: pointer;
@@ -51,11 +52,12 @@
         .walking-character {
             position: absolute;
             bottom: 10px;
+            width: 100px;
             animation: walk 5s linear infinite;
         }
         @keyframes walk {
-            0% { left: 0; }
-            100% { left: 100%; }
+            0% { left: -10%; }
+            100% { left: 110%; }
         }
         .content {
             padding-top: 150px;
@@ -63,10 +65,11 @@
     </style>
 </head>
 <body>
-  <button onclick="document.getElementById('bg-music').play()">播放音乐 🎵</button>
-<audio id="bg-music" loop>
-    <source src=hcutesong.mp3 type="audio/mpeg">
-</audio>
+    <button onclick="document.getElementById('bg-music').play()">播放音乐 🎵</button>
+    <audio id="bg-music" loop muted>
+        <source src="cutesong.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <h1>🎉 欢迎来到焮釔的1周岁派对 🎂</h1>
         <p class="quote">一岁啦！从呱呱坠地到牙牙学语，每一天都是满满的爱与成长💕</p>
@@ -81,8 +84,13 @@
             <p>9:00 感谢到场 🙏</p>
         </div>
     </div>
+
+    <!-- 主角图片 -->
     <img src="main.png.jpeg" alt="主角" class="main-character" width="150">
-    <img src="second.png.jpeg" alt="可爱动画" class="walking-character" width="100" style="left: 10%;">
-    <img src="thrid.jpeg" alt="可爱动画" class="walking-character" width="100" style="right: 10%;">
+
+    <!-- 行走动画 -->
+    <img src="second.png.jpeg" alt="可爱动画1" class="walking-character" style="bottom: 50px;">
+    <img src="third.jpeg" alt="可爱动画2" class="walking-character" style="bottom: 100px; animation-delay: 2s;">
 </body>
 </html>
+
