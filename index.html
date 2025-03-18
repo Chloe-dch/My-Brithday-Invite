@@ -63,30 +63,12 @@
             0% { transform: translateY(0px); }
             100% { transform: translateY(-30px); }
         }
-        
-        /* 生日素材漂浮（蛋糕 & 气球） */
-        .floating-birthday {
-            position: absolute;
-            width: 50px;
-            animation: birthdayFloat 3s infinite ease-in-out;
-        }
 
         @keyframes birthdayFloat {
             0% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
-        
-        .balloon {
-            top: 10%;
-            left: 10%;
-        }
-        
-        .cake {
-            bottom: 5%;
-            right: 10%;
-        }
-        
     </style>
 </head>
 <body>
@@ -111,7 +93,11 @@
 
     <div class="container">
         <h1>🎉 欢迎来到焮釔的1周岁派对 🎂</h1>
+
+        
         <img src="main.jpeg" alt="主角" class="main-character">
+
+        
         <p class="quote">一岁啦！从呱呱坠地到牙牙学语，每一天都是满满的爱与成长💕</p>
         <p>日期：2025年4月18日</p>
         <p>📍 地址：6, Laluan Mewah Indah 3</p>
@@ -129,12 +115,6 @@
     <!-- 可爱动画 -->
     <img src="second.png.jpeg" alt="可爱动画1" class="floating-character" style="top: 60%; left: 5%;">
     <img src="third.jpeg" alt="可爱动画2" class="floating-character" style="top: 40%; right: 5%; animation-delay: 2s;">
-    
-    <!-- 生日素材 -->
-    <img src="balloon.png" alt="气球" class="floating-birthday balloon">
-    <img src="cake.png" alt="蛋糕" class="floating-birthday cake">
-
-</body>
 </html>
 
 
