@@ -3,132 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>焮釔的1周岁派对</title>
+    <title>生日快乐!</title>
     <style>
         body {
-            background: url('background.jpg.jpeg') no-repeat center center/cover;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
-            color: #ff69b4;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            padding: 20px;
+            background-image: url('background.jpg'); /* 确保文件名正确 */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
         }
         h1 {
-            font-size: 2.5em;
-            animation: bounce 2s infinite;
+            color: #ff4081;
+            font-size: 3em;
+            margin-top: 20px;
         }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .animated-img {
+            width: 150px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
         }
-        /* 主角照片（顶部，摇摆动画） */
-.main-character {
-    width: 150px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: sway 2s infinite alternate ease-in-out;
-}
-
-/* 可爱动画照片（初始位置调整，增加移动范围） */
-.animated-img {
-    width: 100px;
-    position: absolute;
-    bottom: 50px;
-    animation: move 3s infinite alternate ease-in-out;
-}
-
-.animated-img:nth-child(2) { left: 25%; }
-.animated-img:nth-child(3) { right: 25%; }
-
-@keyframes sway {
-    0% { transform: translateX(-50%) rotate(-5deg); }
-    100% { transform: translateX(-50%) rotate(5deg); }
-}
-
-@keyframes move {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(40px); }
-}
-        document.querySelectorAll('.animated-img').forEach(img => {
-    img.addEventListener('click', () => {
-        let randomX = Math.random() * 100 - 50; // 随机左右移动
-        let randomY = Math.random() * 50 - 25; // 随机上下移动
-        img.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${Math.random() * 20 - 10}deg)`;
-    });
-});
-        .info {
-            background: rgba(255, 182, 193, 0.8);
-            padding: 15px;
-            border-radius: 15px;
-            margin-top: 50px;
+        .animated-img:nth-of-type(1) { left: 35%; }
+        .animated-img:nth-of-type(2) { right: 35%; }
+        #main-character {
+            width: 200px;
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            cursor: grab;
         }
-        a {
-            display: block;
-            color: #d63384;
-            font-size: 1.2em;
-            text-decoration: none;
-            margin-top: 10px;
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e91e63;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎉 欢迎来到焮釔的1周岁派对 🎉</h1>
-        <img src="Main.png.jpeg" class="main-character" id="main-character">
-        <img src="second.png.jpeg" class="animated-img">
-        <img src="thirdphoto.png.jpeg" class="animated-img">
+    <h1>🎂 生日快乐! 🎉</h1>
+    <img src="second.png" class="animated-img" alt="气球">
+    <img src="thirdphoto.png" class="animated-img" alt="蛋糕">
+    <img src="Main.png" id="main-character" alt="主角">
 
-        <div class="birthday-message">
-            <h2>💕 焮釔满一岁啦！💕</h2>
-            <p>时光飞逝，转眼间焮釔已经陪伴我们 365 天啦！</p>
-            <p>这一年里，我们见证了他的第一次微笑、第一次翻身、第一次咿呀学语...</p>
-            <p>他带来了无数的欢笑，也让我们的生活更加幸福！</p>
-            <p>今天，感谢大家的到来，一起见证这个重要的时刻！🎂🎈</p>
-            <p>愿焮釔在未来的日子里，健康快乐，茁壮成长！💖</p>
-        </div>
-
-        <div class="info">
-            <h2>📅 日期：2025年4月18日</h2>
-            <p>6:30 PM - 到场</p>
-            <p>7:00 PM - 开始用餐 🍽️</p>
-            <p>8:00 PM - 切生日蛋糕 🎂</p>
-            <p>9:00 PM - 感谢大家的到来 ❤️</p>
-            <h3>📍 地址：</h3>
-            <a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">6, Laluan Mewah Indah 3 (点击查看地图)</a>
-        </div>
-    </div>
-
-  <audio id="birthday-music" loop>
-    <source src="cutesong,mp3" type="audio/mp3">
-    您的浏览器不支持音频播放。
-</audio>
-<button onclick="document.getElementById('birthday-music').play()">🎵 播放可爱音乐</button>
+    <audio id="birthday-music" loop>
+        <source src="cutesong.mp3" type="audio/mp3">
+        您的浏览器不支持音频播放。
+    </audio>
+    
+    <button onclick="document.getElementById('birthday-music').play()">🎵 播放可爱音乐</button>
+    <button onclick="document.getElementById('birthday-music').pause()">⏸️ 暂停音乐</button>
 
     <script>
-        let character = document.getElementById("main-character");
-        let offsetX, offsetY, isDragging = false;
-
+        let isDragging = false;
+        let offsetX, offsetY;
+        const character = document.getElementById("main-character");
+        
         character.addEventListener("mousedown", (e) => {
             isDragging = true;
-            offsetX = e.clientX - character.getBoundingClientRect().left;
-            offsetY = e.clientY - character.getBoundingClientRect().top;
+            offsetX = e.clientX - character.offsetLeft;
+            offsetY = e.clientY - character.offsetTop;
+            character.style.cursor = "grabbing";
         });
-
+        
         document.addEventListener("mousemove", (e) => {
             if (isDragging) {
                 character.style.left = e.clientX - offsetX + "px";
                 character.style.top = e.clientY - offsetY + "px";
             }
         });
-
-        document.addEventListener("mouseup", () => { isDragging = false; });
+        
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            character.style.cursor = "grab";
+        });
     </script>
 </body>
 </html>
-
