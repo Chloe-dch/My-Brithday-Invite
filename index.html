@@ -3,48 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>焮釔的1周岁派对</title>
+    <title>焮釔的1周岁派对 🎂</title>
     <style>
-        body {
-            text-align: center;
-            background-image: url('background.jpg'); /* 确保文件名正确 */
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+        
+       background-image: url('background.jpg，jpeg'); /* 确保文件名正确 */
+background-size: cover;
+background-position: center; 
+font-family: Arial, sans-serif;
+            color: #ff4081;
+            padding: 20px;
         }
         h1 {
-            color: #ff4081;
             font-size: 3em;
-            margin-top: 20px;
+            text-shadow: 3px 3px 10px #ff80ab;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(255, 105, 180, 0.3);
+            padding: 20px;
+            display: inline-block;
         }
         .animated-img {
             width: 150px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            animation: float 3s infinite alternate ease-in-out;
         }
-        .animated-img:nth-of-type(1) { left: 35%; }
-        .animated-img:nth-of-type(2) { right: 35%; }
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-10px); }
+        }
         #main-character {
-            width: 200px;
-            position: absolute;
-            left: 50%;
-            top: 60%;
-            transform: translate(-50%, -50%);
+            width: 180px;
             cursor: grab;
+            transition: transform 0.2s;
+        }
+        #main-character:hover {
+            transform: scale(1.1);
         }
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #ff4081;
+            font-size: 18px;
+            background-color: #ff80ab;
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #e91e63;
+            background-color: #ff4081;
         }
     </style>
 </head>
@@ -54,43 +62,25 @@
         <img src="Main.png.jpeg" class="main-character" id="main-character">
         <img src="second.png.jpeg" class="animated-img">
         <img src="thirdphoto.png.jpeg" class="animated-img">
-        <div class="info">
+    <div class="info">
             <h2>📅 日期：2025年4月18日</h2>
-            <p>6:30 PM - 入场</p>
-            <p>7:00 PM - 开始用餐 🍽️</p>
-            <p>8:00 PM - 生日切蛋糕 🎂</p>
-            <p>9:00 PM - 感谢大家的到来 ❤️</p>
+            <p>🍽️ 6:30 PM - 入场</p>
+            <p>🎂 7:00 PM - 享用晚餐</p>
+            <p>🎶 8:00 PM - 切蛋糕时间 🎈</p>
+            <p>💖 9:00 PM - 感谢大家的到来！</p>
             <h3>📍 地址：</h3>
-            <a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">6, Laluan Mewah Indah 3 (点击查看地图)</a>
+            <a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">6, Laluan Mewah Indah 3（点击查看地图）</a>
         </div>
     </div>
-
-  <audio id="birthday-music" loop>
+    <br>
+    <audio id="birthday-music" loop>
         <source src="cutesong.mp3" type="audio/mp3">
-        您的浏览器不支持音频播放。
     </audio>
-    
-    <button onclick="document.getElementById('birthday-music').play()">🎵 播放可爱音乐</button>
+    <button onclick="document.getElementById('birthday-music').play()">🎵 播放音乐</button>
     <button onclick="document.getElementById('birthday-music').pause()">⏸️ 暂停音乐</button>
+</body>
+</html>
 
-    <script>
-        let isDragging = false;
-        let offsetX, offsetY;
-        const character = document.getElementById("main-character");
-        
-        character.addEventListener("mousedown", (e) => {
-            isDragging = true;
-            offsetX = e.clientX - character.offsetLeft;
-            offsetY = e.clientY - character.offsetTop;
-            character.style.cursor = "grabbing";
-        });
-        
-        document.addEventListener("mousemove", (e) => {
-            if (isDragging) {
-                character.style.left = e.clientX - offsetX + "px";
-                character.style.top = e.clientY - offsetY + "px";
-            }
-        });
         
         document.addEventListener("mouseup", () => {
             isDragging = false;
